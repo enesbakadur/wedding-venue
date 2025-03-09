@@ -1,0 +1,30 @@
+---
+description: Projenin tamamı için geçerli olacak olan kurallar
+globs: 
+---
+
+# General Project Rules
+
+## 1. Temiz Kod ve Dosya Yapısı  
+- Klasör yapısı belirli bir düzende olmalı.  
+- Gereksiz kod tekrarlarından kaçınılmalı.  
+
+## 2. README Güncellemeleri  
+- Yapılan değişiklikler tarih belirtilerek yazılmalı (`YYYY-MM-DD HH:MM`).  
+- Aynı gün içinde birden fazla değişiklik varsa saat eklenmeli.  
+
+## 3. Kod Standartları  
+- `.tsx` dosyalarında gereksiz karmaşıklık olmamalı.  
+- 10 satırda yazılabilecek bir kod 20 satır olmamalı.  
+
+## 4. Tailwind Kullanımı  
+- Sınıflar gereksiz uzun olmamalı.  
+- Mantıklı gruplamalar yapılmalı.  
+
+## 5. İsimlendirme Kuralları  
+- **Bileşenler:** PascalCase (`UserProfile.tsx`)  
+- **Fonksiyonlar:** camelCase (`fetchUserData`)  
+- **Dosyalar:** kebab-case (`user-profile.tsx`)  
+
+## 6. Yorum Satırları  
+- Önemli fonksiyonlar en az bir açıklamaya sahip olmalı.  
