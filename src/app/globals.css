@@ -1,24 +1,21 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --text-color: #404040;
+  --background: #ffffff;
+  --foreground: #171717;
+  --text-color: #404040;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-    background: var(--background);
-    color: var(--text-color);
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    @apply text-sm lg:text-base;
-}
-.ellipse {
-    clip-path: ellipse(42% 100% at 50% 105%);
+  background: var(--background);
+  color: var(--text-color);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  @apply text-sm lg:text-base;
 }
