@@ -3,6 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Cormorant, Cormorant_Unicase } from "next/font/google";
+
+const cormorant = Cormorant({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const cormorantUnicase = Cormorant_Unicase({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 // Hall data structure
 const halls = [
@@ -70,11 +83,13 @@ const HallsSection = () => {
   return (
     <section className="w-full py-8 px-2 md:px-4">
       <div className="max-w-7xl mx-auto flex flex-col gap-3 md:gap-6">
-        <h2 className="text-2xl lg:text-[2rem] font-semibold font-[cormorant-unicase] uppercase">
+        <h2
+          className={`text-2xl lg:text-[2rem] font-semibold uppercase ${cormorantUnicase.className}`}
+        >
           Salonlarımız
         </h2>
         {/* Halls Carousel */}
-        <div className="flex max-lg:flex-col gap-3 md:gap-6 shadow-[0px_0px_10px_0px_rgba(64,64,64,0.05)] hover:shadow-[10px_10px_50px_0px_rgba(64,64,64,0.15)] p-2 md:p-4 lg:p-6 rounded-xl md:rounded-2xl lg:rounded-3xl transition-all duration-300">
+        <div className="flex max-lg:flex-col gap-3 md:gap-6 shadow-[0px_0px_10px_0px_rgba(64,64,64,0.05)] hover:shadow-[10px_10px_50px_0px_rgba(64,64,64,0.15)] p-2 md:p-4 lg:p-6 rounded-xl md:rounded-2xl lg:rounded-3xl transition-shadow duration-300">
           {/* Hall Image */}
           <div className="w-full lg:w-2/5 h-[200px] md:h-[300px] lg:h-full lg:!aspect-square relative rounded-lg md:rounded-xl overflow-hidden">
             <AnimatePresence initial={false} custom={direction}>
@@ -95,7 +110,7 @@ const HallsSection = () => {
                   src={halls[currentIndex].image}
                   fill
                   alt={halls[currentIndex].name}
-                  className="object-cover shadow-lg rounded-lg md:rounded-xl overflow-hidden pointer-events-auto"
+                  className="object-cover pointer-events-auto"
                 />
                 <div className="absolute inset-0 bg-[#D7C2AE] mix-blend-overlay z-10"></div>
               </motion.div>
@@ -106,7 +121,9 @@ const HallsSection = () => {
             <div className="flex flex-col gap-4 md:gap-6">
               <div className="flex flex-col gap-2 md:gap-3">
                 {/* Hall Number */}
-                <p className="font-semibold text-lg md:text-xl lg:text-2xl font-[cormorant-unicase] text-[#D6D6D6]">
+                <p
+                  className={`font-semibold text-lg md:text-xl lg:text-2xl font-[cormorant-unicase] text-[#D6D6D6] ${cormorantUnicase.className}`}
+                >
                   <span className="text-[#404040]">
                     {String(currentIndex + 1).padStart(2, "0")}
                   </span>
@@ -119,7 +136,7 @@ const HallsSection = () => {
                     initial={{ opacity: 0, x: direction * 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -direction * 50 }}
-                    className="font-semibold text-lg md:text-xl lg:text-2xl font-[cormorant]"
+                    className={`font-semibold text-lg md:text-xl lg:text-2xl ${cormorant.className}`}
                   >
                     {halls[currentIndex].name}
                   </motion.p>

@@ -2,6 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Cormorant_Unicase } from "next/font/google";
+
+const cormorantUnicase = Cormorant_Unicase({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const AboutUsSection = () => {
   const [showMore, setShowMore] = useState(false);
@@ -12,35 +19,40 @@ const AboutUsSection = () => {
         <div className="relative grid grid-cols-2 gap-2 md:gap-3 w-full md:w-1/2 max-md:h-[200px]">
           <div className="relative col-span-2 md:col-span-1 rounded-lg md:rounded-xl overflow-hidden h-full">
             <Image
-              src="/images/about-us/about-us-1.jpg"
+              src="/images/about-us/about-us-1.webp"
               fill
               alt="Picture of the author"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-[#D7C2AE] mix-blend-overlay z-10"></div>
           </div>
           <div className="col-span-2 md:col-span-1 grid grid-cols-2 gap-2 md:gap-3 h-full">
             <div className="relative col-span-1 md:col-span-2 rounded-lg md:rounded-xl overflow-hidden h-full">
               <Image
-                src="/images/about-us/about-us-2.jpg"
+                src="/images/about-us/about-us-2.webp"
                 fill
                 alt="Picture of the author"
                 className="object-cover h-full"
               />
+              <div className="absolute inset-0 bg-[#D7C2AE] mix-blend-overlay z-10"></div>
             </div>
             <div className="relative col-span-1 md:col-span-2 rounded-lg md:rounded-xl overflow-hidden h-full">
               <Image
-                src="/images/about-us/about-us-3.jpg"
+                src="/images/about-us/about-us-3.webp"
                 fill
                 alt="Picture of the author"
                 className="object-cover h-full"
               />
+              <div className="absolute inset-0 bg-[#D7C2AE] mix-blend-overlay z-10"></div>
             </div>
           </div>
         </div>
         {/* About Us Informations */}
         <div className="w-full md:w-1/2 flex flex-col gap-3 md:gap-6">
           <div>
-            <h2 className="text-2xl lg:text-[2rem] font-semibold font-[cormorant-unicase] uppercase">
+            <h2
+              className={`text-2xl lg:text-[2rem] font-semibold uppercase ${cormorantUnicase.className}`}
+            >
               Hakkımızda
             </h2>
             <p className={`${showMore ? "" : "max-md:line-clamp-3"}`}>
