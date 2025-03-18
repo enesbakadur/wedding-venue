@@ -17,5 +17,5 @@ body {
   background: var(--background);
   color: var(--text-color);
   font-family: Inter, Arial, Helvetica, sans-serif;
-  @apply text-sm lg:text-base;
+  @apply text-sm lg:text-base overflow-x-hidden;
 }
