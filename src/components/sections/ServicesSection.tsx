@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Navigation } from "swiper/modules";
+import { useRef } from "react";
 
 const cormorant = Cormorant({
   subsets: ["latin"],
@@ -65,6 +66,9 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+
   return (
     <section className="relative w-full py-8">
       {/* Background Gray */}
@@ -79,10 +83,16 @@ const ServicesSection = () => {
           </h2>
           {/* Carousel Navigation */}
           <div className="flex gap-2 items-center">
-            <button className="swiper-button-prev size-8 lg:size-10 bg-transparent border-1 border-[#404040] rounded-full flex items-center justify-center cursor-pointer group z-20">
+            <button
+              ref={prevRef}
+              className="size-8 lg:size-10 bg-transparent border-1 border-[#404040] rounded-full flex items-center justify-center cursor-pointer group z-20"
+            >
               <i className="ri-arrow-left-line text-xl group-hover:scale-110 transition-all duration-150"></i>
             </button>
-            <button className="swiper-button-next size-8 lg:size-10 bg-transparent border-1 border-[#404040] rounded-full flex items-center justify-center cursor-pointer group z-20">
+            <button
+              ref={nextRef}
+              className="size-8 lg:size-10 bg-transparent border-1 border-[#404040] rounded-full flex items-center justify-center cursor-pointer group z-20"
+            >
               <i className="ri-arrow-right-line text-xl group-hover:scale-110 transition-all duration-150"></i>
             </button>
           </div>
@@ -94,8 +104,8 @@ const ServicesSection = () => {
             slidesPerView={1}
             spaceBetween={-30}
             navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
             }}
             grabCursor={true}
             loop={true}
@@ -117,6 +127,14 @@ const ServicesSection = () => {
             }}
             modules={[Autoplay, Navigation]}
             className="mySwiper"
+            onInit={(swiper) => {
+              // @ts-ignore
+              swiper.params.navigation.prevEl = prevRef.current;
+              // @ts-ignore
+              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
           >
             {services.map((service) => (
               <SwiperSlide className="px-5 lg:py-8">
