@@ -1,5 +1,5 @@
 const PortfollioSection = () => {
-    return <section className='w-full py-8 px-2 md:px-4'></section>;
+  return <section className="w-full py-8 px-2 md:px-4 c"></section>;
 };
 
 export default PortfollioSection;
