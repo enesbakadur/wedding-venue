@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Unicase } from "next/font/google";
+import { Cormorant_Unicase, Corinthia } from "next/font/google";
 
 const cormorantUnicase = Cormorant_Unicase({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const corinthia = Corinthia({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
 });
 
 const HeroSection = () => {
@@ -29,7 +35,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center text-center gap-8">
         <div>
-          <h1 className="font-[lindsey-signature] text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] xl:mb-2">
+          <h1
+            className={`${corinthia.className} text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] leading-16 lg:leading-24 xl:leading-36`}
+          >
             Birlikte Bir Ömür...
           </h1>
           <p className="max-lg:w-9/10 mx-auto">

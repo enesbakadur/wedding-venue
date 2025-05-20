@@ -1,21 +1,14 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --text-color: #404040;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --background: #ffffff;
+    --foreground: #171717;
+    --text-color: #404040;
 }
 
 body {
-  background: var(--background);
-  color: var(--text-color);
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  @apply text-sm lg:text-base overflow-x-hidden;
+    background: var(--background);
+    color: var(--text-color);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    @apply text-sm lg:text-base overflow-x-hidden;
 }
